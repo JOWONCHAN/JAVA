@@ -53,14 +53,39 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		int sum1 = 0, sum2 = 0, sum3 = 0;
+		
 		if ( e.getSource() == orderBtn ) {
-//			if ( temp1 == 0 ) {
-//				sum += 100;
-//			} else if ( temp1 == 1 ) {
-//				sum += 200;
-//			} else if ( temp1 == 2 ) {
-//				sum += 300;
-//			}
+			
+			if ( temp1 == 0 ) {
+				sum1 = 100;
+			} else if ( temp1 == 1 ) {
+				sum1 = 200;
+			} else if ( temp1 == 2 ) {
+				sum1 = 300;
+			}
+			
+			if ( temp2 == 0 ) {
+				sum2 = 100;
+			} else if ( temp2 == 1 ) {
+				sum2 = 200;
+			} else if ( temp2 == 2 ) {
+				sum2 = 300;
+			} else if ( temp2 == 3 ) {
+				sum2 = 400;
+			}
+			
+			if ( temp3 == 0 ) {
+				sum3 = 100;
+			} else if ( temp3 == 1 ) {
+				sum3 = 200;
+			} else if ( temp3 == 2 ) {
+				sum3 = 300;
+			}
+			
+			sum = sum1 + sum2 + sum3;
+			
+			
 			priceField.setText(String.valueOf(sum));
 			System.out.println("temp1:" + temp1 + ", temp2:" + temp2 + ", temp3:" + temp3);
 		} else if ( e.getSource() == cancelBtn ) {
