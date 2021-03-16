@@ -23,12 +23,12 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 		
 		this.setSize(500, 200);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		this.setTitle("ÇÇÀÚ ÁÖ¹®");
+		this.setTitle("í”¼ì ì£¼ë¬¸");
 		
-		orderBtn = new JButton("ÁÖ¹®");
+		orderBtn = new JButton("ì£¼ë¬¸");
 		orderBtn.addActionListener(this);
 		
-		cancelBtn = new JButton("Ãë¼Ò");
+		cancelBtn = new JButton("ì·¨ì†Œ");
 		cancelBtn.addActionListener(this);
 		
 		priceField = new JTextField();
@@ -79,14 +79,14 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 		
 		public WelcomePanel() {
 			
-			message = new JLabel("ÀÚ¹Ù ÇÇÀÚ¿¡ ¿À½Å°ÍÀ» È¯¿µÇÕ´Ï´Ù.");
+			message = new JLabel("ìë°” í”¼ìì— ì˜¤ì‹ ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤.");
 			this.add(message);
 			
 		}
 		
 	}
 	
-	class TypePanel extends JPanel implements ChangeListener {
+	class TypePanel extends JPanel implements ActionListener {
 		
 		private JRadioButton combo, potato, bulgogi;
 		private ButtonGroup btnGroup;
@@ -94,19 +94,19 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 		public TypePanel() {
 			
 			this.setLayout(new GridLayout(3, 1));
-			combo = new JRadioButton("ÄŞº¸", true);
-			combo.addChangeListener(this);
-			potato = new JRadioButton("Æ÷Å×ÀÌÅä");
-			potato.addChangeListener(this);
-			bulgogi = new JRadioButton("ºÒ°í±â");
-			bulgogi.addChangeListener(this);
+			combo = new JRadioButton("ì½¤ë³´", true);
+			combo.addActionListener(this);
+			potato = new JRadioButton("í¬í…Œì´í† ");
+			potato.addActionListener(this);
+			bulgogi = new JRadioButton("ë¶ˆê³ ê¸°");
+			bulgogi.addActionListener(this);
 			
 			btnGroup = new ButtonGroup();
 			btnGroup.add(combo);
 			btnGroup.add(potato);
 			btnGroup.add(bulgogi);
 			
-			this.setBorder(BorderFactory.createTitledBorder("Á¾·ù"));
+			this.setBorder(BorderFactory.createTitledBorder("ì¢…ë¥˜"));
 			
 			this.add(combo);
 			this.add(potato);
@@ -115,7 +115,7 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 		}
 		
 		@Override
-		public void stateChanged(ChangeEvent e) {
+		public void actionPerformed(ActionEvent e) {
 			
 			if ( e.getSource() == combo ) {
 				temp1 = 0;
@@ -128,7 +128,7 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 		}
 	}
 	
-	class ToppingPanel extends JPanel implements ChangeListener {
+	class ToppingPanel extends JPanel implements ActionListener {
 		
 		private JRadioButton pepper, cheese, peperoni, bacon;
 		
@@ -138,14 +138,14 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 			
 			this.setLayout(new GridLayout(4, 1));
 			
-			pepper = new JRadioButton("ÇÇ¸Á", true);
-			pepper.addChangeListener(this);
-			cheese = new JRadioButton("Ä¡Áî");
-			cheese.addChangeListener(this);
-			peperoni = new JRadioButton("ÆäÆä·Î´Ï");
-			peperoni.addChangeListener(this);
-			bacon = new JRadioButton("º£ÀÌÄÁ");
-			bacon.addChangeListener(this);
+			pepper = new JRadioButton("í”¼ë§", true);
+			pepper.addActionListener(this);
+			cheese = new JRadioButton("ì¹˜ì¦ˆ");
+			cheese.addActionListener(this);
+			peperoni = new JRadioButton("í˜í˜ë¡œë‹ˆ");
+			peperoni.addActionListener(this);
+			bacon = new JRadioButton("ë² ì´ì»¨");
+			bacon.addActionListener(this);
 			
 			btnGroup = new ButtonGroup();
 			btnGroup.add(pepper);
@@ -153,7 +153,7 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 			btnGroup.add(peperoni);
 			btnGroup.add(bacon);
 			
-			this.setBorder(BorderFactory.createTitledBorder("Ãß°¡ÅäÇÎ"));
+			this.setBorder(BorderFactory.createTitledBorder("ì¶”ê°€í† í•‘"));
 			
 			this.add(pepper);
 			this.add(cheese);
@@ -163,7 +163,7 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 		}
 		
 		@Override
-		public void stateChanged(ChangeEvent e) {
+		public void actionPerformed(ActionEvent e) {
 			
 			if ( e.getSource() == pepper ) {
 				temp2 = 0;
@@ -178,7 +178,7 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 		}
 	}
 	
-	class SizePanel extends JPanel implements ChangeListener {
+	class SizePanel extends JPanel implements ActionListener {
 		
 		private JRadioButton small, medium, large;
 		private ButtonGroup btnGroup;
@@ -187,18 +187,18 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 			
 			this.setLayout(new GridLayout(3, 1));
 			small = new JRadioButton("smal", true);
-			small.addChangeListener(this);
+			small.addActionListener(this);
 			medium = new JRadioButton("Medium");
-			medium.addChangeListener(this);
+			medium.addActionListener(this);
 			large = new JRadioButton("Large");
-			large.addChangeListener(this);
+			large.addActionListener(this);
 			
 			btnGroup = new ButtonGroup();
 			btnGroup.add(small);
 			btnGroup.add(medium);
 			btnGroup.add(large);
 			
-			this.setBorder(BorderFactory.createTitledBorder("Å©±â"));
+			this.setBorder(BorderFactory.createTitledBorder("í¬ê¸°"));
 			
 			this.add(small);
 			this.add(medium);
@@ -207,7 +207,7 @@ public class PizzaOrderDemo extends JFrame implements ActionListener {
 		}
 		
 		@Override
-		public void stateChanged(ChangeEvent e) {
+		public void actionPerformed(ActionEvent e) {
 			
 			if ( e.getSource() == small ) {
 				temp3 = 0;
