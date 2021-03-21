@@ -15,7 +15,7 @@ public class TextConverter2 extends JFrame implements ActionListener{
     private final String API_URI = "https://openapi.naver.com/v1/papago/n2mt";
     
 	public TextConverter2() {
-		this.setTitle("ÅØ½ºÆ® º¯È¯");
+		this.setTitle("í…ìŠ¤íŠ¸ ë³€í™˜");
 		
 		textIn = new JTextArea(10, 14);
 		textOut = new JTextArea(10, 14);
@@ -27,8 +27,8 @@ public class TextConverter2 extends JFrame implements ActionListener{
 		textAreaPanel.add(textIn);
 		textAreaPanel.add(textOut);
 		
-		converBtn = new JButton("º¯È¯");
-		cancelBtn = new JButton("Ãë¼Ò");
+		converBtn = new JButton("ë³€í™˜");
+		cancelBtn = new JButton("ì·¨ì†Œ");
 		converBtn.addActionListener(this);
 		cancelBtn.addActionListener(this);
 		
@@ -49,14 +49,7 @@ public class TextConverter2 extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		/*
-		 	º¯È¯ ¹öÆ°ÀÌ Å¬¸¯µÇ¾ú´Ù¸é
-		 		ÁÂÃø textAreaÀÇ ÅØ½ºÆ®¸¦ ÀĞ¾î¼­ In
-		 		¿µ¾î·Î º¯È¯ÇÏ°í ±× º¯È¯µÈ °á°ú¸¦ 
-		 		¿ìÃø textArea¿¡ append Out
-		 	Ãë¼Ò ¹öÆ°ÀÌ Å¬¸¯µÇ¾ú´Ù¸é
-		 		¿ìÃøÀ» ºó ¹®ÀÚ¿­·Î ¼³Á¤ Out
-		 */
+		
 		if(e.getSource() == converBtn) {
 			String result = toEnglish(textIn.getText());
 			textOut.setText(result);
@@ -71,7 +64,7 @@ public class TextConverter2 extends JFrame implements ActionListener{
 		try {
             text = URLEncoder.encode(korean, "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("ÀÎÄÚµù ½ÇÆĞ", e);
+            throw new RuntimeException("ì¸ì½”ë”© ì‹¤íŒ¨", e);
         }
 		
 		Map<String, String> requestHeaders = new HashMap<>();
@@ -106,7 +99,7 @@ public class TextConverter2 extends JFrame implements ActionListener{
                 return readBody(con.getErrorStream());
             }
         } catch (IOException e) {
-            throw new RuntimeException("API ¿äÃ»°ú ÀÀ´ä ½ÇÆĞ", e);
+            throw new RuntimeException("API ìš”ì²­ê³¼ ì‘ë‹µ ì‹¤íŒ¨", e);
         } finally {
             con.disconnect();
         }
@@ -117,9 +110,9 @@ public class TextConverter2 extends JFrame implements ActionListener{
             URL url = new URL(apiUrl);
             return (HttpURLConnection)url.openConnection();
         } catch (MalformedURLException e) {
-            throw new RuntimeException("API URLÀÌ Àß¸øµÇ¾ú½À´Ï´Ù. : " + apiUrl, e);
+            throw new RuntimeException("API URLì´ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤. : " + apiUrl, e);
         } catch (IOException e) {
-            throw new RuntimeException("¿¬°áÀÌ ½ÇÆĞÇß½À´Ï´Ù. : " + apiUrl, e);
+            throw new RuntimeException("ì—°ê²°ì´ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤. : " + apiUrl, e);
         }
     }
 
@@ -136,7 +129,7 @@ public class TextConverter2 extends JFrame implements ActionListener{
             
             return responseBody.toString();
         } catch (IOException e) {
-            throw new RuntimeException("API ÀÀ´äÀ» ÀĞ´Âµ¥ ½ÇÆĞÇß½À´Ï´Ù.", e);
+            throw new RuntimeException("API ì‘ë‹µì„ ì½ëŠ”ë° ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.", e);
         }
     }
     
